@@ -108,7 +108,7 @@ module Mongoid #:nodoc:
     def to_param
       read_attribute(slug_name) || begin
         generate_slug!
-        save
+        save(:validate => false)
         read_attribute(slug_name)
       end
     end
